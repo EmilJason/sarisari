@@ -37,7 +37,7 @@ export default function Login({register}) {
 
     return (
         <>
-            <Container maxWidth="xs" style={{margin: "1rem"}}>
+            <Container maxWidth="xs">
                 <Typography variant="h6" style={{textAlign:"center"}}>
                     Login
                 </Typography>
