@@ -21,7 +21,16 @@ const style={
 }
 
 export default function Stock() {
-    const [stock, setStock] = useState([]);
+    const [stock, setStock] = useState([
+        {_id: 123,
+         description: "sample 1",
+         price: 9.00
+        },
+        {_id: 456,
+         description: "sample 2",
+         price: 18.00
+        },
+    ]);
     const [newStockForm, setNewStockForm] = useState(false)
 
     const renderNewForm=()=>{

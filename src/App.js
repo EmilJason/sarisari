@@ -19,7 +19,7 @@ function App() {
       if (user) {
         setUser(user.email);
       } else {
-        setUser("");
+        setUser("emil");
       }
     });
   };
