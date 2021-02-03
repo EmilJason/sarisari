@@ -5,10 +5,6 @@ import {Container, Typography, Fab} from '@material-ui/core';
 import NewStock from "./NewStock";
 import StockLists from './StockLists';
 
-import firebase from 'firebase/app';
-import '../config';
-import 'firebase/firestore';
-
 // api
 let api = "https://aqueous-everglades-23747.herokuapp.com/api"
 

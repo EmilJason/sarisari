@@ -9,6 +9,7 @@ const style={
         width: "100vw",
         height: "100vh",
         background: "rgba(255,255,255,0.5)",
+        backdropFilter: "blur(3px)",
         zIndex: 1
     },
     modalContent:{
@@ -20,6 +21,11 @@ const style={
         flexDirection: "column",
         gap: "1rem",
         boxShadow: "2px 0 12px rgba(0,0,0,0.5)"
+    },
+    '@media (max-width: 1200px)':{
+        modalContent:{
+            marginTop: 0
+        }
     }
 }
 export default function EditProduct({close}) {
