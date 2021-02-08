@@ -30,7 +30,6 @@ const style={
 export default function NewStock({close}) {
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState(0);
-    const [quantity, setQuantity] = useState(0);
 
     let saveStock=()=>{
         axios.post(`${api}/product/add`,{
@@ -69,19 +68,8 @@ export default function NewStock({close}) {
                         onChange={e=>setPrice(e.target.value)}
                         fullWidth />
 
-                    <TextField
-                        variant="outlined"
-                        type="text"
-                        name="quantity"
-                        label="Quantity"
-                        placeholder="Enter the quantity"
-                        style={style.txt}
-                        value={quantity}
-                        onChange={e=>setQuantity(e.target.value)}
-                        fullWidth />
-
-                    <Button variant="contained" style={style.btn} onClick={saveStock}>Save</Button>
-
+                    <Button variant="contained" color="primary" style={style.btn} onClick={saveStock}>Save</Button>
+                    <Button variant="outlined" color="secondary" onClick={close}>Cancel</Button>
                 </Container>
             </div>
         </>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Container, Card, CardContent,CardActions, CardHeader, Button, Typography } from "@material-ui/core";
 import EditProduct from "./EditProduct";
+import AddStock from "./AddStock";
 
 const style={
     card:{
@@ -10,10 +11,15 @@ const style={
 
 export default function StockLists({value}) {
     const [openEditForm, setOpenEditForm] = useState(false)
-    const {description,price} = value
+    const [openAddForm, setOpenAddForm] = useState(false)
+    const {_id,description,price} = value
 
     const renderEditForm=()=>{
-        return openEditForm===true ? <EditProduct close={()=>setOpenEditForm(false)} /> : null;
+        return openEditForm===true ? <EditProduct value={value} close={()=>setOpenEditForm(false)} /> : null;
+    }
+
+    const renderAddStock=()=>{
+        return openAddForm === true ? <AddStock value={value} close={()=>setOpenAddForm(false)} /> : null;
     }
 
     return (
@@ -25,11 +31,12 @@ export default function StockLists({value}) {
                             <Typography variant="body2">{price} pesos</Typography>
                         </CardContent>
                         <CardActions>
-                            <Button variant="contained" color="primary">Add Stock</Button>
+                            <Button variant="contained" color="primary" onClick={()=>setOpenAddForm(true)}>Add Stock</Button>
                             <Button variant="contained" color="secondary" onClick={()=>setOpenEditForm(true)}>Edit</Button>
                         </CardActions>
                 </Card>
                 {renderEditForm()}
+                {renderAddStock()}
             </Container>
         </div>
     )
