@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Container, TextField, Button, Typography } from "@material-ui/core";
+import axios from 'axios'
 
+// api
+let api = "https://aqueous-everglades-23747.herokuapp.com/api"
 
 const style={
     modalBG:{
@@ -28,6 +31,11 @@ const style={
 export default function AddStock({close,value}) {
     const {_id,description,price} = value
     const [quantity, setQuantity] = useState(0)
+
+    function saveStock() {
+        axios.put(`${api}/stock/new/${_id}`,{quantity:quantity}).then(()=>console.log("data added")).catch(err=>console.log(err.message))
+    }
+
     return (
         <div style={style.modalBG}>
             <Container maxWidth="xs" style={style.modal}>
@@ -45,7 +53,7 @@ export default function AddStock({close,value}) {
                     value={quantity}
                     onChange={(e)=>setQuantity(e.target.value)}/>
 
-                <Button variant="contained" color="primary">Save</Button>
+                <Button variant="contained" color="primary" onClick={saveStock}>Save</Button>
                 <Button variant="outlined" color="secondary" onClick={close}>Cancel</Button>
             </Container>
         </div>
